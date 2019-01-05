@@ -3,14 +3,16 @@ package com.bridgelabz;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.Filter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LoginCheck extends HttpServlet 
+public class LoginCheck extends HttpServlet
 {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)  
 	        throws ServletException, IOException
@@ -20,13 +22,17 @@ public class LoginCheck extends HttpServlet
 	    PrintWriter out = response.getWriter();  
 	          
 	    String name=request.getParameter("userName");  
-	    String password=request.getParameter("userPass");  
-	          
+	    String password=request.getParameter("userPass"); 
+	    Cookie cookie1 = new Cookie("Username",name);
+	    Cookie cookie2 = new Cookie("Password",password);
+	   
 	    try {
 			if(dao.checkDetails(name, password))
-			{  
+			{ 
 				HttpSession session = request.getSession();
 				session.setAttribute("uname", name);
+				response.addCookie(cookie1);
+				response.addCookie(cookie2);
 			    RequestDispatcher rd=request.getRequestDispatcher("/welcomeUser.jsp");  
 			    rd.forward(request, response);  
 			}  

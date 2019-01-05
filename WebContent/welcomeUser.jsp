@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,14 +15,27 @@
          </style>
 
 <body style=margin-top:8em;margin-left:30em;>
-<%
-		response.setHeader("Cache-Control","no-cache , no-store , must-revalidate");//for back button after logout	
-		if(session.getAttribute("uname")==null)
+	<%
+		Cookie cookie[]=request.getCookies();
+		PrintWriter writer = response.getWriter();
+		if(cookie!=null)
 		{
-			response.sendRedirect("index.jsp");
-		}	
+			for(int i=0;i<cookie.length;i++)
+			{
+				String name = cookie[i].getName();
+				String passwd = cookie[i].getValue();
+				//System.out.println(name+" "+value);
+				response.setHeader("Cache-Control","no-cache , no-store , must-revalidate");//for back button after logout	
+				if(session.getAttribute("uname")==null)
+				{
+					response.sendRedirect("index.jsp");
+				}	
+			}
+		}
+		else
+			writer.print("session expired..!!!");
 	%>
-
+	
 </body>
 <form action="logout">
 	<table>	

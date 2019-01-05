@@ -22,7 +22,6 @@ public class LoginDao
 		}
 		statement.close();
 		con.close();
-		return false;
-		
+		return false;		
 	}
 }

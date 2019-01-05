@@ -13,8 +13,8 @@
       </style>
 <body style=margin-top:12em;margin-left:25em;margin-right:5;>
 	<form action="servlet1" method="post">  
-Name:<input type="text" name="userName"/><br/>  
-Password:<input type="password" name="userPass"/><br/>  
+Enter Name:<input type="text" name="userName" value=""/><br/>  
+Enter Password:<input type="password" name="userPass" value=""/><br/>  
 <input type="submit" value="login"/>  
 </form>
 </body>

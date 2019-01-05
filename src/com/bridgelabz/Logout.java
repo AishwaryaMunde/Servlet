@@ -1,7 +1,6 @@
 package com.bridgelabz;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +14,6 @@ public class Logout extends HttpServlet
 		HttpSession session = request.getSession();
 		session.removeAttribute("uname");
 		session.invalidate();
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("index.jsp");			
 	}
 }

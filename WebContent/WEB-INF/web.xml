@@ -1,13 +1,14 @@
     <web-app>  
      <servlet>  
         <servlet-name>Login</servlet-name>  
-        <servlet-class>com.bridgelabz.LoginCheck</servlet-class>  
+        <servlet-class>com.bridgelabz.LoginCheck</servlet-class>         
       </servlet>  
+      
       <servlet-mapping>  
         <servlet-name>Login</servlet-name>  
         <url-pattern>/servlet1</url-pattern>  
       </servlet-mapping>  
-     
+      
       <servlet>  
         <servlet-name>WelcomeServlet</servlet-name>  
         <servlet-class>com.bridgelabz.WelcomeCheck</servlet-class>  
@@ -15,8 +16,18 @@
       <servlet-mapping>  
         <servlet-name>WelcomeServlet</servlet-name>  
         <url-pattern>/servlet2</url-pattern>  
-      </servlet-mapping>  
+      </servlet-mapping>
       
+      <filter>
+      	<filter-name>LoginFilter</filter-name>
+      	<filter-class>com.bridgelabz.LoginFilter</filter-class>          	
+      </filter>
+      <filter-mapping>
+      	<filter-name>LoginFilter</filter-name>
+      	<url-pattern>/filter1</url-pattern>
+      </filter-mapping>
+      
+ 
       <servlet>  
         <servlet-name>logout</servlet-name>  
         <servlet-class>com.bridgelabz.Logout</servlet-class>  
