@@ -23,12 +23,12 @@
 			for(int i=0;i<cookie.length;i++)
 			{
 				String name = cookie[i].getName();
-				String passwd = cookie[i].getValue();
-				//System.out.println(name+" "+value);
+				String value = cookie[i].getValue();
 				response.setHeader("Cache-Control","no-cache , no-store , must-revalidate");//for back button after logout	
 				if(session.getAttribute("uname")==null)
 				{
-					response.sendRedirect("index.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+					rd.forward(request, response);
 				}	
 			}
 		}
@@ -37,7 +37,7 @@
 	%>
 	
 </body>
-<form action="logout">
+<form action="logout" method="post">
 	<table>	
 		<h1 style="color:Black;">Welcome ${uname}</h1>
 		<td><input type="submit" value = "Logout" style = " width: 18em;  height: 2em;"></td>	
