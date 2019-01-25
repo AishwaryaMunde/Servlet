@@ -26,7 +26,8 @@ public class RegisterToLogin extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
+	/**This method fetch data entered by user on register.jsp page and save it into 
+	 * database.this method create connection with database and perform operation on it.
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     int count=0;
@@ -38,11 +39,13 @@ public class RegisterToLogin extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/login","admin","admin");
 			PreparedStatement statement = connection.prepareStatement(query); 
+			// fetching data from web page 
 			String firstname = request.getParameter("firstname");
 			String lastname = request.getParameter("lastname");
 			String emailid = request.getParameter("emailid");
 			String uname = request.getParameter("uname");
 			String passwd = request.getParameter("password");
+			//inserting data in databse
 			statement.setString(1,firstname);
 			statement.setString(2,lastname);
 			statement.setString(3,emailid);
@@ -52,7 +55,7 @@ public class RegisterToLogin extends HttpServlet {
 			System.out.println(count + " rows affected");
 			statement.close();
 			connection.close();
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("index.jsp");		//after registration this method will redirect you to index page
 		}
 		catch(Exception e)
 		{

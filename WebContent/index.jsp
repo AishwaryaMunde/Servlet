@@ -8,19 +8,21 @@
 </head>
 <style>
          body {
-            background-image: url("https://images.fineartamerica.com/images-medium-large/bokeh-rain-william-shevchuk.jpg");
+            background-image: url("http://backgroundcheckall.com/wp-content/uploads/2017/12/windows-10-login-screen-background.jpg");
+            background-repeat: no-repeat;  
+			background-size: 1300px 700px;   
          }
       </style>
-<h1 style="color:Yellow;">Welcome To BridgeLabz</h1>
+<h1 style="color:Black;">Welcome To BridgeLabz</h1>
 <body style=margin-top:12em;margin-left:25em;margin-right:5;>
 	<form action="servlet1" method="Post">
 		<table  width="350">
 			<tr>
-				<td style="color:Yellow"><h2 style="color:Yellow;">User Name</h2></td>
+				<td style="color:Black"><h2 style="color:Black;">User Name</h2></td>
 				<td><input type="text" name="userName" style = " width: 15em;  height: 2em;"></td>
 			</tr>
 			<tr>
-				<td style="color:Yellow"><h2 style="color:Yellow;">Password</h2></td>
+				<td style="color:Black"><h2 style="color:Black;">Password</h2></td>
 				<td><input type="password" name="userPass" style = " width: 15em;  height: 2em;"></td>
 			</tr>
 			<tr>
